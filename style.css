@@ -169,7 +169,24 @@ li {
 	font-size: 1.3em;
 }
 .mode input[type='radio'] {
-	margin-left: 10px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border-radius: 50%;
+	width: 16px;
+	height: 16px;
+	overflow: hidden;
+
+	border: 2px solid #999;
+	transition: 0.2s all linear;
+	outline: none;
+	margin-right: 5px;
+
+	position: relative;
+}
+
+.mode input[type='radio']:checked {
+	border: 6px solid dodgerblue;
 }
 .game-options .mode:hover {
 	color: dodgerblue;
