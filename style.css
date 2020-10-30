@@ -181,8 +181,11 @@ li {
 	transition: 0.2s all linear;
 	outline: none;
 	margin-right: 5px;
-
 	position: relative;
+}
+
+.mode input[type='radio']:checked {
+	border: 6px solid dodgerblue;
 }
 
 .mode input[type='radio']:checked {
