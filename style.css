@@ -1,0 +1,266 @@
+body {
+	font-family: Arial, serif;
+	color: #333;
+	-webkit-user-select: none; /* Chrome/Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+	-o-user-select: none;
+	user-select: none;
+	color: #fff;
+	/* background: #283c86; */
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+#app {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+h1 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	width: 100%;
+	order: 1;
+	color: dodgerblue;
+}
+
+ul {
+	list-style: none;
+}
+
+ul,
+li {
+	padding: 0;
+	margin: 0;
+}
+
+.active {
+	opacity: 1 !important;
+}
+
+.wrapper {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+.game-board {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	order: 3;
+}
+
+.simon {
+	background: #fff;
+	position: relative;
+	float: left;
+	width: 400px;
+	height: 400px;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	padding: 50px;
+}
+
+.tile {
+	opacity: 0.6;
+	-webkit-transition: opacity 0.4s ease;
+	-moz-transition: opacity 0.4s ease;
+	-ms-transition: opacity 0.4s ease;
+	-o-transition: opacity 0.4s ease;
+	transition: opacity 0.4s ease;
+}
+
+.tile.lit {
+	opacity: 1;
+}
+
+.red,
+.blue,
+.yellow,
+.green {
+	height: 400px;
+	width: 400px;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	position: absolute;
+	text-indent: 10000px;
+}
+
+.red {
+	background: #ff5643;
+	clip: rect(0px, 400px, 200px, 200px);
+	width: 400px;
+}
+.red:hover {
+	box-shadow: 2px -2px 4px #283c86;
+}
+.yellow:hover {
+	box-shadow: -2px 2px 4px #283c86;
+}
+.blue:hover {
+	box-shadow: -2px -2px 4px #283c86;
+}
+.green:hover {
+	box-shadow: 2px 2px 4px #283c86;
+}
+
+.blue {
+	background: dodgerblue;
+	clip: rect(0px, 200px, 200px, 0px);
+	width: 400px;
+}
+
+.yellow {
+	background: #feef33;
+	clip: rect(200px, 200px, 400px, 0px);
+	width: 400px;
+}
+
+.green {
+	background: #bede15;
+	clip: rect(200px, 400px, 400px, 200px);
+	width: 400px;
+}
+.settings {
+	order: 2;
+	display: flex;
+	width: 100%;
+	justify-content: space-evenly;
+}
+
+.game-info,
+.game-options {
+	color: #283c86;
+	background-color: #fff;
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	border: 2px solid #bede15;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.game-options {
+	align-self: flex-start;
+}
+.game-options h2 {
+	padding: 20px;
+	font-size: 1.2em;
+	text-align: center;
+	width: 50%;
+	margin: 0;
+}
+.game-options .mode {
+	cursor: pointer;
+	align-self: start;
+	padding-left: 30%;
+	font-size: 1.3em;
+}
+.game-options .mode:hover {
+	color: dodgerblue;
+}
+
+.game-info button {
+	width: 5em;
+	box-sizing: border-box;
+	font-size: 1.4em;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border-radius: 30px;
+	background: #6dabe8;
+	border: none;
+	padding: 0.6em;
+	outline-width: 0;
+	color: #fff;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+.game-info h2 {
+	text-align: center;
+}
+.game-info .round {
+	margin-bottom: 15px;
+	font-size: 2em;
+	font-weight: 800;
+}
+.game-info p {
+	position: absolute;
+	background-color: #fff;
+	border: 2px solid #283c86;
+	top: calc(50vh - 100px);
+	left: calc(50vw - 150px);
+	z-index: 15000;
+	padding: 25px 50px;
+	border-radius: 10px;
+
+	margin-left: auto;
+	margin-right: auto;
+}
+.game-info button:hover {
+	background: #78bcff;
+}
+.game-options input[type='radio'] {
+	margin-right: 10px;
+	line-height: 1;
+}
+
+.hoverable:hover {
+	cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+	.simon {
+		width: 200px;
+		height: 200px;
+		padding: 20px;
+	}
+	.red,
+	.blue,
+	.yellow,
+	.green {
+		height: 200px;
+		width: 200px;
+	}
+	.red {
+		clip: rect(0px, 200px, 100px, 100px);
+	}
+
+	.blue {
+		clip: rect(0px, 100px, 100px, 0px);
+	}
+
+	.yellow {
+		clip: rect(100px, 100px, 200px, 0px);
+	}
+
+	.green {
+		clip: rect(100px, 200px, 200px, 100px);
+	}
+
+	.game-info,
+	.game-options {
+		width: 150px;
+		height: 150px;
+		font-size: x-small;
+	}
+	.game-info p {
+		top: calc(50vh);
+		left: calc(50vw - 117px);
+	}
+	.game-options h2 {
+		padding: 10px;
+		font-size: 1.3em;
+	}
+	.game-options .mode {
+		font-size: 1em;
+		margin-bottom: 5px;
+	}
+} ;

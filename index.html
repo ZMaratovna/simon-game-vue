@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+		/>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="wrapper">
+				<h1>Simon Says</h1>
+				<div class="game-board">
+					<div class="simon">
+						<ul>
+							<li
+								class="tile"
+								v-for="(tile, index) in tiles"
+								:ref="'tile' + index"
+								:key="tile.number"
+								:data-tile="tile.number"
+								:class="[ {'lit': (activeButton === tile.number)}, {'hoverable': isActivated}, tile.color]"
+								v-on="{ click: isActivated ? registerClick : emptyHandler,
+                                 mousedown:  isActivated ? responseHandler : emptyHandler,
+                                mouseup:  isActivated ? removeResponse : emptyHandler}"
+							></li>
+						</ul>
+					</div>
+				</div>
+				<div class="settings">
+					<div class="game-options">
+						<h2>Chose the game level!</h2>
+						<div class="mode" v-for="value in options">
+							<input
+								name="mode"
+								type="radio"
+								:value="value"
+								@change="changeMode"
+							/>
+							<span>{{value}}</span>
+						</div>
+					</div>
+					<div class="game-info">
+						<h2>Round</h2>
+						<div class="round">{{round}}</div>
+						<button data-action="start" @click="startGame">
+							Start
+						</button>
+						<p data-action="lose" v-if="!active">
+							Sorry, you lost after
+							<span data-round="0">{{round}}</span> rounds!
+						</p>
+					</div>
+				</div>
+
+				<div class="hide" v-show="null">
+					<audio
+						v-for="(sound, index) in sounds"
+						:ref="'sound' + index"
+					>
+						<source :src="sound" type="audio/mpeg" />
+					</audio>
+				</div>
+			</div>
+		</div>
+		<script src="index.js"></script>
+	</body>
+</html>
