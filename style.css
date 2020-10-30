@@ -160,10 +160,16 @@ li {
 	margin: 0;
 }
 .game-options .mode {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
 	cursor: pointer;
 	align-self: start;
 	padding-left: 30%;
 	font-size: 1.3em;
+}
+.mode input[type='radio'] {
+	margin-left: 10px;
 }
 .game-options .mode:hover {
 	color: dodgerblue;
