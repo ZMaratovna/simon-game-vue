@@ -37,13 +37,15 @@
 					<div class="game-options">
 						<h2>Choose the game level!</h2>
 						<div class="mode" v-for="value in options">
-							<input
-								name="mode"
-								type="radio"
-								:value="value"
-								@change="changeMode"
-							/>
-							<span>{{value}}</span>
+							<label
+								><input
+									name="mode"
+									type="radio"
+									:id="value"
+									:value="value"
+									@change="changeMode"
+							/></label>
+							<label :for="value">{{value}}</label>
 						</div>
 					</div>
 					<div class="game-info">
